@@ -1,17 +1,18 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<x-guest-layout>
+    <div class="min-h-screen ">
+        @include('layouts.navigation')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+        {{-- hero content --}}
+        <div class="w-[1440px] mx-auto lg:h-[450px] h-fit overflow-hidden flex justify-between items-center">
+            <span class="text-md font-bold flex flex-col space-y-5">
+                <div>
+                    <p class="font-normal">SISTEM INFORMASI MANAJEMEN BENCANA </p>
+                    <h1 class="text-5xl">Pusat Informasi</h1>
+                    <h1 class="text-5xl">Gempa Bumi</h1>
+                    <p class="font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam ratione perferendis dolorem! Tenetur, amet! Autem, numquam nisi incidunt ex molestiae id expedita natus culpa quisquam aliquam velit aperiam, est consequatur quos dicta voluptatibus enim quasi! Eum inventore odio expedita!</p>
                 </div>
-            </div>
+            </span>
+            <img src="{{ asset('assets/images/home/22178554_2112.w015.n001.646A.p30.646 [Converted].png') }}" width="600px" alt="foto gempa bumi">
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>
