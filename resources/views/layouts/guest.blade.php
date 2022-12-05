@@ -12,10 +12,18 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        @if (request()->is('/'))
+        <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+        @endif
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+
+        @if (request()->is('/'))
+        <script src="{{ asset('assets/js/home.js') }}"></script>
+        @endif
     </body>
 </html>
