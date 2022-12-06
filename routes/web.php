@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
+use Spatie\FlareClient\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // return view('welcome');
     return view('home');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,5 +32,28 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// route untuk tambah berita
+Route::resource('berita', NewsController::class);
+
+// route untuk mitigasi
+Route::get('edukasi-bencana', function() {
+    return view('mitigasi');
+})->name('mitigasi');
+
+// route untuk kontak
+Route::get('kontak', function() {
+    return view('contact');
+})->name('kontak');
+
+Route::post('kontak', [ContactController::class, 'store']);
+
+
+// route untuk laporan
+Route::get('laporan', function() {
+    return view('report');
+})->name('laporan');
+
+Route::post('laporan', [ReportController::class, 'store']);
 
 require __DIR__.'/auth.php';

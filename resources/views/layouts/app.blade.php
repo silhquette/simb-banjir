@@ -16,8 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
+        
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -40,6 +39,12 @@
             <main>
                 {{ $slot }}
             </main>
+
+            
         </div>
+
+        {{-- carousel.js --}}
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="{{ asset('assets/js/carousel.js') }}"></script>
     </body>
 </html>
