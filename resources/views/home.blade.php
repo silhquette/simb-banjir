@@ -64,26 +64,31 @@
             </div>
         </div>
 
+        {{-- card --}}
+        @if (empty($post))
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
-            <div class="container mx-auto py-6 px-4">
-                <h1 class="text-3xl py-4 border-b mb-8">Berita Hangat</h1>
-        
-                <div class="grid grid-cols-4">
-                    <div class="w-full p-4 rounded-xl shadow-lg">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                          <img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src="https://dummyimage.com/420x260" />
-                        </a>
-                        <div class="mt-4">
-                            <h2 class="title-font text-lg font-medium text-gray-900 mb-1">The Catalyzer</h2>
-                            <h3 class="title-font text-sm text-gray-600 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi explicabo accusamus rem fuga iusto molestias illo corrupti odit voluptas enim!</h3>
-                            <a class="title-font text-sm mb-1 text-sky-800" href="#">Read more</a>
-                            <p class="mb-1">01/09/2022</p>
-                            <h3 class="title-font text-xs tracking-widest text-gray-500">PROJECT</h3>
-                        </div>
-                    </div>
+          <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl py-4 border-b mb-8">Berita Hangat</h1>
+            
+            <div class="grid grid-cols-4">
+                  @foreach ($posts as $post)
+                  <div class="w-full p-4 rounded-xl shadow-lg">
+                      <a class="relative block h-48 overflow-hidden rounded">
+                        <img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src="https://dummyimage.com/420x260" />
+                      </a>
+                      <div class="mt-4">
+                          <h2 class="title-font text-lg font-medium text-gray-900 mb-1">{{ $post->judul }}</h2>
+                          <h3 class="title-font text-sm text-gray-600 mb-1">{{ $post->excerpt }}</h3>
+                          <a class="title-font text-sm mb-1 text-sky-800" href="{{ $post->references }}">Read more</a>
+                          <p class="mb-1">01/09/2022</p>
+                          <h3 class="title-font text-xs tracking-widest text-gray-500">{{ $post->author }}</h3>
+                      </div>
+                  </div> 
+                  @endforeach
                 </div>
             </div>
-        </div>
+        </div>            
+        @endif
 
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
             <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>

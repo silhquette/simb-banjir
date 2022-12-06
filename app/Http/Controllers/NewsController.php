@@ -14,7 +14,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('News');
+        $posts = News::all();
+
+        return view('home', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('News');
     }
 
     /**

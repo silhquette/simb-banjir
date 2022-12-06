@@ -18,10 +18,7 @@ use Spatie\FlareClient\View;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('home');
-})->name('home');
+Route::get('/', [NewsController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,7 +31,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // route untuk tambah berita
-Route::resource('berita', NewsController::class);
+Route::resource('berita', NewsController::class, [
+    'as' => 'berita'
+]);
 
 // route untuk mitigasi
 Route::get('edukasi-bencana', function() {
