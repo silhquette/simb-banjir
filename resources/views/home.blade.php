@@ -29,7 +29,7 @@
                         <thead>
                             <tr class="text-left">
                                 <template x-for="heading in headings">
-                                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-sm py-4"
+                                    <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 text-gray-600 font-bold tracking-wider uppercase text-sm py-4"
                                         x-text="heading.value" :x-ref="heading.key" :class="{ [heading.key]: true }"></th>
                                 </template>
                             </tr>
