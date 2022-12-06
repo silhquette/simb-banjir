@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('lokasi');
-            $table->integer('korban');
+            $table->integer('korban')->nullable();
             $table->text('deskripsi');
             $table->timestamps();
         });

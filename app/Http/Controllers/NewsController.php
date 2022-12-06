@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $posts = News::all();
+        $posts = News::latest()->get();
 
         return view('home', [
             'posts' => $posts

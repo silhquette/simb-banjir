@@ -25,7 +25,7 @@
                         {{ __('Kontak') }}
                     </x-nav-link>
                     @if (isset(Auth::user()->name))
-                    <x-nav-link :href="route('berita.berita.index')" :active="request()->routeIs('berita.berita.index')">
+                    <x-nav-link :href="route('berita.berita.create')" :active="request()->routeIs('berita.berita.create')">
                         {{ __('Tambah Berita') }}
                     </x-nav-link>
                     @endif

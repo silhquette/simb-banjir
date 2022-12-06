@@ -65,7 +65,7 @@
         </div>
 
         {{-- card --}}
-        @if (empty($post))
+        @if (!empty($posts))
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
           <div class="container mx-auto py-6 px-4">
             <h1 class="text-3xl py-4 border-b mb-8">Berita Hangat</h1>
