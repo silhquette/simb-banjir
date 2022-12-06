@@ -13,6 +13,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        {{-- home.css --}}
         @if (request()->is('/'))
         <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
         @endif
@@ -22,8 +23,13 @@
             {{ $slot }}
         </div>
 
+        {{-- jome.js --}}
         @if (request()->is('/'))
         <script src="{{ asset('assets/js/home.js') }}"></script>
         @endif
+
+        {{-- carousel.js --}}
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="{{ asset('assets/js/carousel.js') }}"></script>
     </body>
 </html>

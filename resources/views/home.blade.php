@@ -2,10 +2,8 @@
     <div class="min-h-screen ">
         @include('layouts.navigation')
 
-        {{-- hero content --}}
-        <div class="w-full mx-auto lg:h-[250px] h-fit overflow-hidden flex justify-between items-center bg-black">
-            <div class="text-4xl font-bold text-white text-center w-full">PUSAT INFORMASI GEMPA BUMI</div>
-        </div>
+        {{-- title --}}
+        <x-carousel title="PUSAT INFORMASI GEMPA BUMI"></x-carousel>
 
         {{-- content --}}
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
@@ -66,82 +64,82 @@
             </div>
         </div>
 
+        {{-- card --}}
+        @if (!empty($posts))
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
-            <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>
-                <h1 class="text-3xl py-4 border-b mb-8">Berita Hangat</h1>
-        
-                <div class="grid grid-cols-4">
-                    <div class="w-full p-4 rounded-xl shadow-lg">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                          <img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src="https://dummyimage.com/420x260" />
-                        </a>
-                        <div class="mt-4">
-                            <h2 class="title-font text-lg font-medium text-gray-900 mb-1">The Catalyzer</h2>
-                            <h3 class="title-font text-sm text-gray-600 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi explicabo accusamus rem fuga iusto molestias illo corrupti odit voluptas enim!</h3>
-                            <a class="title-font text-sm mb-1 text-sky-800" href="#">Read more</a>
-                            <p class="mb-1">01/09/2022</p>
-                            <h3 class="title-font text-xs tracking-widest text-gray-500">PROJECT</h3>
-                        </div>
-                    </div>
+          <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl py-4 border-b mb-8">Berita Hangat</h1>
+            
+            <div class="grid grid-cols-4">
+                  @foreach ($posts as $post)
+                  <div class="w-full p-4 rounded-xl shadow-lg">
+                      <a class="relative block h-48 overflow-hidden rounded">
+                        <img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src="https://dummyimage.com/420x260" />
+                      </a>
+                      <div class="mt-4">
+                          <h2 class="title-font text-lg font-medium text-gray-900 mb-1">{{ $post->judul }}</h2>
+                          <h3 class="title-font text-sm text-gray-600 mb-1">{{ $post->excerpt }}</h3>
+                          <a class="title-font text-sm mb-1 text-sky-800" href="{{ $post->references }}">Read more</a>
+                          <p class="mb-1">01/09/2022</p>
+                          <h3 class="title-font text-xs tracking-widest text-gray-500">{{ $post->author }}</h3>
+                      </div>
+                  </div> 
+                  @endforeach
                 </div>
             </div>
-        </div>
+        </div>            
+        @endif
 
         <div class="w-max-[1440px] mx-auto h-fit overflow-hidden flex justify-between items-center">
             <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>
                 <h1 class="text-3xl py-4 border-b mb-8">Layanan</h1>
-                <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-2/3 mx-auto">
 
                     {{-- card --}}
-                    <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                        </svg>
+                    <a href="{{ route('laporan') }}">
+                      <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                          </svg>
+                        </div>
+                  
+                        <div class="ml-4">
+                          <h2 class="font-semibold">Laporan Gempa Bumi</h2>
+                          <p class="mt-2 text-sm text-gray-500">Ada gempa? Segera laporkan!</p>
+                        </div>
                       </div>
+                    </a>
                 
-                      <div class="ml-4">
-                        <h2 class="font-semibold">Laporan Gempa Bumi</h2>
-                        <p class="mt-2 text-sm text-gray-500">Last opened 4 days ago</p>
+                    <a href="{{ route('mitigasi') }}">
+                      <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full border border-red-100 bg-red-50">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                          </svg>
+                        </div>
+                  
+                        <div class="ml-4">
+                          <h2 class="font-semibold">Edukasi Bencana</h2>
+                          <p class="mt-2 text-sm text-gray-500">Pelajari gempa bumi lebih lanjut</p>
+                        </div>
                       </div>
-                    </div>
-                
-                    <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                
-                      <div class="ml-4">
-                        <h2 class="font-semibold">Edukasi Bencana</h2>
-                        <p class="mt-2 text-sm text-gray-500">Last checked 3 days ago</p>
-                      </div>
-                    </div>
-                    <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full border border-red-100 bg-red-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                      </div>
-                
-                      <div class="ml-4">
-                        <h2 class="font-semibold">Kontak</h2>
-                        <p class="mt-2 text-sm text-gray-500">Last authored 1 day ago</p>
-                      </div>
-                    </div>
-                    <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    </a>
+
+                    <a href="{{ route('kontak') }}">
+                      <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
+                          </svg>
+                        </div>
+                  
+                        <div class="ml-4">
+                          <h2 class="font-semibold">Kontak</h2>
+                          <p class="mt-2 text-sm text-gray-500">Butuh kami? Hubungi segera</p>
+                        </div>
                       </div>
-                
-                      <div class="ml-4">
-                        <h2 class="font-semibold">Tentang Kami</h2>
-                        <p class="mt-2 text-sm text-gray-500">Last commented 8 days ago</p>
-                      </div>
-                    </div>
+                    </a>
                   </div>
             </div>
         </div>
