@@ -33,28 +33,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template x-for="user in users" :key="user.userId">
+                            <template x-for="user in gempa" :key="user.nomor">
                                 <tr>
-                                    <td class="border-dashed border-t border-gray-200 userId">
-                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.userId"></span>
+                                    <td class="border-dashed border-t border-gray-200 nomor">
+                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.nomor"></span>
                                     </td>
-                                    <td class="border-dashed border-t border-gray-200 firstName">
-                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.firstName"></span>
+                                    <td class="border-dashed border-t border-gray-200 DateTime">
+                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.DateTime"></span>
                                     </td>
-                                    <td class="border-dashed border-t border-gray-200 lastName">
-                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.lastName"></span>
+                                    <td class="border-dashed border-t border-gray-200 Magnitude">
+                                        <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.Magnitude"></span>
                                     </td>
-                                    <td class="border-dashed border-t border-gray-200 emailAddress">
+                                    <td class="border-dashed border-t border-gray-200 Kedalaman">
                                         <span class="text-gray-700 px-6 py-3 flex items-center"
-                                            x-text="user.emailAddress"></span>
+                                            x-text="user.Kedalaman"></span>
                                     </td>
-                                    <td class="border-dashed border-t border-gray-200 gender">
+                                    <td class="border-dashed border-t border-gray-200 Wilayah">
                                         <span class="text-gray-700 px-6 py-3 flex items-center"
-                                            x-text="user.gender"></span>
-                                    </td>
-                                    <td class="border-dashed border-t border-gray-200 phoneNumber">
-                                        <span class="text-gray-700 px-6 py-3 flex items-center"
-                                            x-text="user.phoneNumber"></span>
+                                            x-text="user.Wilayah"></span>
                                     </td>
                                 </tr>
                             </template>

@@ -8,8 +8,8 @@
         <div class="flex p-10">
             <div class="rounded-xl bg-white p-4 shadow-lg w-1/2 flex flex-col gap-4">
                 <p class="font-semibold text-lg">Tentang Kami</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptatem dolorum nulla tempore architecto accusamus vitae, nostrum impedit sit fugit error natus modi amet explicabo, culpa quo in ad commodi obcaecati quod quidem atque eaque? Accusantium beatae nam quo et qui voluptates esse, quia in repudiandae veniam ducimus. Harum neque accusantium natus, saepe laudantium quis accusamus earum reiciendis dolorum perspiciatis quo explicabo voluptate nemo? Dolorem ut quas odio mollitia deleniti.</p>
-                <p>Email : bpbd@jogjakota.go.id</p>
+                <p>Pusat Informasi Gempa Bumi merupakan lembaga penanggulangan bencana yang berkedudukan di bawah dan bertanggung jawab kepada Gubernur. BPBD dipimpin oleh seorang kepala, yang dijabat secara ex officio oleh Sekretaris Daerah (Sekda), yang berkedudukan di bawah dan bertanggung jawab kepada Gubernur.</p>
+                <p>Email : simb.pusatiinformasigempa@jogjakota.go.id</p>
             </div>
     
             <form action="{{ route('kontak') }}" method="POST" class="w-full">
